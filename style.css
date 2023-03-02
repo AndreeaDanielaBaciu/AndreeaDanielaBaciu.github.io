@@ -254,6 +254,16 @@ nav ul li a:hover::after{
 }
 
 /* ---------contact-------- */
+
+.copy-button {
+    display: none;
+}
+
+.email-address:hover + .copy-button {
+    display: inline-block;
+}
+
+
 .contact-left{
     flex-basis: 35%;
 }
@@ -279,6 +289,8 @@ nav ul li a:hover::after{
     display: inline-block;
     transition: transform 0.5s;
 }
+
+
 .social-icons a:hover{
     color: #420A8A;
     transform: translateY(-5px);
@@ -301,6 +313,8 @@ form input, form textarea{
     font-size: 18px;
     border-radius: 6px;
 }
+
+
 form .btn2{
     padding: 14px 60px;
     font-size: 18px;

@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-9zjgkEYYsAeGvZtWxQxulYGSg/7+KMFGvG9Svw2QgZ4I0FhsAFwFn0qx4CxNcvtbEGEq1zsjOq3yeiFzX9ZBdQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+
 </head>
 <body>
 <div id="header">
@@ -110,7 +112,8 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
-                <p><i class="fas fa-paper-plane"></i> Andreea-Daniela.Baciu@city.ac.uk</p>
+                <p><a href="mailto:Andreea-Daniela.Baciu@city.ac.uk" class="email-address">Andreea-Daniela.Baciu@city.ac.uk</a></p>
+                <button class="copy-button">Copy to Clipboard</button>
                 <p><i class="fa-solid fa-phone"></i> +44 7306202017</p>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/andreeadanielabaciu/"><i class="fab fa-linkedin"></i></a>
@@ -165,11 +168,10 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz34T-EY-MzXwhEJ-XZnhAituDhYmr4u2A5pgikBN31l8nH1Q0yKHAajW5SgI19HKc/exec'
     const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg")
-  
+    const msg = document.getElementById("msg") 
     form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        e.preventDefault()
+        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
             msg.innerHTML = "Message sent successfully"
             setTimeout(function(){
@@ -179,6 +181,41 @@
         })
         .catch(error => console.error('Error!', error.message))
     })
-  </script>
+</script>
+
+
+<script>
+    // Get the email address element
+    var email = document.getElementById("email");
+
+    // Create a tooltip element
+    var tooltip = document.createElement("span");
+    tooltip.className = "tooltip";
+    tooltip.innerHTML = "Copy to clipboard";
+
+    // Add the tooltip to the email address element
+    email.appendChild(tooltip);
+
+    // Add an event listener to the tooltip to copy the email address to the clipboard
+    tooltip.addEventListener("click", function() {
+        var textarea = document.createElement("textarea");
+        textarea.value = email.textContent.trim();
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        tooltip.innerHTML = "Copied!";
+    });
+
+    // Add event listeners to show/hide the tooltip
+    email.addEventListener("mouseenter", function() {
+        tooltip.style.visibility = "visible";
+    });
+    email.addEventListener("mouseleave", function() {
+        tooltip.style.visibility = "hidden";
+        tooltip.innerHTML = "Copy to clipboard";
+    });
+</script>
+
 </body>
 </html>
