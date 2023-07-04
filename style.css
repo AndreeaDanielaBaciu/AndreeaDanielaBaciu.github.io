@@ -13,11 +13,15 @@ body{
 }
 #header{
     width: 100%;
-    height: 100vh;
+    height: 50vh;
     background-image: url(images/background.png);
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
+}
+
+.sidemenu{
+    position: fixed;
 }
 .container{
     padding: 10px 10%;
@@ -31,7 +35,7 @@ nav{
 }
 
 .logo{
-    width: 140px;
+    width: 100px;
 }
 
 nav ul li{
@@ -60,8 +64,8 @@ nav ul li a:hover::after{
     width: 100%;
 }
 .header-text{
-    margin-top: 20%;
-    font-size: 30px;
+    margin-top: 15%;
+    font-size: 25px;
 }
 .header-text h1{
     font-size: 60px;
@@ -254,16 +258,6 @@ nav ul li a:hover::after{
 }
 
 /* ---------contact-------- */
-
-.copy-button {
-    display: none;
-}
-
-.email-address:hover + .copy-button {
-    display: inline-block;
-}
-
-
 .contact-left{
     flex-basis: 35%;
 }
@@ -289,8 +283,6 @@ nav ul li a:hover::after{
     display: inline-block;
     transition: transform 0.5s;
 }
-
-
 .social-icons a:hover{
     color: #420A8A;
     transform: translateY(-5px);
@@ -313,8 +305,6 @@ form input, form textarea{
     font-size: 18px;
     border-radius: 6px;
 }
-
-
 form .btn2{
     padding: 14px 60px;
     font-size: 18px;

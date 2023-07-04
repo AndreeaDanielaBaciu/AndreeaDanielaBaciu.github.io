@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-9zjgkEYYsAeGvZtWxQxulYGSg/7+KMFGvG9Svw2QgZ4I0FhsAFwFn0qx4CxNcvtbEGEq1zsjOq3yeiFzX9ZBdQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
-    <script src="script.js"></script>
-
 </head>
 <body>
 <div id="header">
@@ -26,7 +24,7 @@
             <i class="fas fa-bars" onclick="openmenu()"></i>
         </nav>
         <div class="header-text">
-            <p>Computer Science Graduate</p>
+            <p>Software Engineer</p>
             <h1>Hi, I'm <span>Andreea</span><br>Nice to meet you!</h1>
         </div>
     </div>
@@ -42,10 +40,26 @@
                 <h1 class="sub-title">About Me</h1>
                 <p></p>
 
+
+                
+
                 <div class="tab-titles">
-                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('experience')">Experience</p>
+                    <p class="tab-links active-link" onclick="opentab('skills')">Skills</p>
                     <p class="tab-links" onclick="opentab('education')">Education</p>
+                </div>
+
+                <div class="tab-contents" id="experience">
+                    <ul>
+                        <li><span>April 2023 - Present</span><br>Software Developer Consultant at FDM Group</li>
+                        <br/>
+                        <li><span>Other: </span><br></li>
+                        <br/>
+                        <li><span>September 2022</span><br>ID Card Production Assisstant at City, University of London</li>
+                        <li><span>June 2021 - June 2022</span><br>Communication Officer at CU Society at City, University of London</li>
+                        <li><span>October 2020 - June 2021</span><br>CityBuddy Mentor at City, University of London</li>
+                        <li><span>June 2020 - July 2020</span><br>Technology Intern at Bright Network</li>
+                    </ul>
                 </div>
                 <div class="tab-contents active-tab" id="skills">
                     <ul>
@@ -54,14 +68,7 @@
                         <li><span>Other</span><br>Jupyter Notebook, Google Colab, VS Code, Git, Visual Paradigm, IntelliJ, Jira, MS Suite, Django</li>
                     </ul>
                 </div>
-                <div class="tab-contents" id="experience">
-                    <ul>
-                        <li><span>September 2022</span><br>ID Card Production Assisstant at City, University of London</li>
-                        <li><span>June 2021 - June 2022</span><br>Communication Officer at CU Society at City, University of London</li>
-                        <li><span>October 2020 - June 2021</span><br>CityBuddy Mentor at City, University of London</li>
-                        <li><span>June 2020 - July 2020</span><br>Technology Intern at Bright Network</li>
-                    </ul>
-                </div>
+                
                 <div class="tab-contents" id="education">
                     <ul>
                         <li><span>BSc Computer Science at City, University of London: 1st Class</span><br>Modules Included: Mathematics and Programming for AI, Computer Vision, Data Structures and Algorithms, Language
@@ -112,8 +119,7 @@
         <div class="row">
             <div class="contact-left">
                 <h1 class="sub-title">Contact Me</h1>
-                <p><a href="mailto:Andreea-Daniela.Baciu@city.ac.uk" class="email-address">Andreea-Daniela.Baciu@city.ac.uk</a></p>
-                <button class="copy-button">Copy to Clipboard</button>
+                <p><i class="fas fa-paper-plane"></i> Andreea-Daniela.Baciu@city.ac.uk</p>
                 <p><i class="fa-solid fa-phone"></i> +44 7306202017</p>
                 <div class="social-icons">
                     <a href="https://www.linkedin.com/in/andreeadanielabaciu/"><i class="fab fa-linkedin"></i></a>
@@ -168,10 +174,11 @@
 <script>
     const scriptURL = 'https://script.google.com/macros/s/AKfycbz34T-EY-MzXwhEJ-XZnhAituDhYmr4u2A5pgikBN31l8nH1Q0yKHAajW5SgI19HKc/exec'
     const form = document.forms['submit-to-google-sheet']
-    const msg = document.getElementById("msg") 
+    const msg = document.getElementById("msg")
+  
     form.addEventListener('submit', e => {
-        e.preventDefault()
-        fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
         .then(response => {
             msg.innerHTML = "Message sent successfully"
             setTimeout(function(){
@@ -181,41 +188,6 @@
         })
         .catch(error => console.error('Error!', error.message))
     })
-</script>
-
-
-<script>
-    // Get the email address element
-    var email = document.getElementById("email");
-
-    // Create a tooltip element
-    var tooltip = document.createElement("span");
-    tooltip.className = "tooltip";
-    tooltip.innerHTML = "Copy to clipboard";
-
-    // Add the tooltip to the email address element
-    email.appendChild(tooltip);
-
-    // Add an event listener to the tooltip to copy the email address to the clipboard
-    tooltip.addEventListener("click", function() {
-        var textarea = document.createElement("textarea");
-        textarea.value = email.textContent.trim();
-        document.body.appendChild(textarea);
-        textarea.select();
-        document.execCommand("copy");
-        document.body.removeChild(textarea);
-        tooltip.innerHTML = "Copied!";
-    });
-
-    // Add event listeners to show/hide the tooltip
-    email.addEventListener("mouseenter", function() {
-        tooltip.style.visibility = "visible";
-    });
-    email.addEventListener("mouseleave", function() {
-        tooltip.style.visibility = "hidden";
-        tooltip.innerHTML = "Copy to clipboard";
-    });
-</script>
-
+  </script>
 </body>
 </html>
